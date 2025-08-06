@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core System Colors - Updated for Modern Look */
+    --color-background: #FAFBFC; /* Slightly warmer white */
+    --color-foreground: #1E293B; /* Deeper slate */
+    --color-border: #E1E7EF; /* Softer border */
+    --color-input: #FFFFFF; /* Pure white */
+    --color-ring: #0F172A; /* Darker focus ring */
+    
+    /* Card Colors - Enhanced */
+    --color-card: #FFFFFF; /* Pure white */
+    --color-card-foreground: #1E293B; /* Deeper text */
+    
+    /* Popover Colors */
+    --color-popover: #FFFFFF; /* white */
+    --color-popover-foreground: #1E293B; /* slate-800 */
+    
+    /* Muted Colors - Warmer Grays */
+    --color-muted: #F1F5F9; /* Lighter slate */
+    --color-muted-foreground: #64748B; /* Balanced slate */
+    
+    /* Primary Colors - Modern Blue Gradient */
+    --color-primary: #0F172A; /* Deep slate for premium feel */
+    --color-primary-foreground: #FFFFFF; /* white */
+    
+    /* Secondary Colors - Sophisticated Teal */
+    --color-secondary: #0F766E; /* teal-700 */
+    --color-secondary-foreground: #FFFFFF; /* white */
+    
+    /* Accent Colors - Vibrant Modern */
+    --color-accent: #6366F1; /* Modern indigo */
+    --color-accent-foreground: #FFFFFF; /* white */
+    
+    /* Success Colors - Fresh Green */
+    --color-success: #10B981; /* Modern emerald */
+    --color-success-foreground: #FFFFFF; /* white */
+    
+    /* Warning Colors - Modern Amber */
+    --color-warning: #F59E0B; /* amber-500 */
+    --color-warning-foreground: #FFFFFF; /* white */
+    
+    /* Error Colors - Contemporary Red */
+    --color-error: #EF4444; /* Modern red */
+    --color-error-foreground: #FFFFFF; /* white */
+    --color-destructive: #EF4444; /* red-500 */
+    --color-destructive-foreground: #FFFFFF; /* white */
+  }
+
+  .dark {
+    /* Core System Colors - Premium Dark Mode */
+    --color-background: #0F172A; /* Deep slate */
+    --color-foreground: #F8FAFC; /* Near white */
+    --color-border: #334155; /* Balanced slate */
+    --color-input: #1E293B; /* Deep slate */
+    --color-ring: #3B82F6; /* Bright blue */
+    
+    /* Card Colors - Dark Mode Premium */
+    --color-card: #1E293B; /* Deep slate */
+    --color-card-foreground: #F8FAFC; /* Near white */
+    
+    /* Popover Colors - Dark Mode */
+    --color-popover: #1E293B; /* slate-800 */
+    --color-popover-foreground: #F8FAFC; /* Near white */
+    
+    /* Muted Colors - Dark Mode Refined */
+    --color-muted: #334155; /* slate-700 */
+    --color-muted-foreground: #94A3B8; /* slate-400 */
+    
+    /* Primary Colors - Dark Mode Accent */
+    --color-primary: #3B82F6; /* Bright blue */
+    --color-primary-foreground: #FFFFFF; /* white */
+    
+    /* Secondary Colors - Dark Teal */
+    --color-secondary: #14B8A6; /* teal-500 */
+    --color-secondary-foreground: #FFFFFF; /* white */
+    
+    /* Accent Colors - Dark Mode Indigo */
+    --color-accent: #8B5CF6; /* Modern violet */
+    --color-accent-foreground: #FFFFFF; /* white */
+    
+    /* Success Colors - Dark Mode */
+    --color-success: #10B981; /* emerald-500 */
+    --color-success-foreground: #FFFFFF; /* white */
+    
+    /* Warning Colors - Dark Mode */
+    --color-warning: #F59E0B; /* amber-500 */
+    --color-warning-foreground: #000000; /* black */
+    
+    /* Error Colors - Dark Mode */
+    --color-error: #EF4444; /* red-500 */
+    --color-error-foreground: #FFFFFF; /* white */
+    --color-destructive: #EF4444; /* red-500 */
+    --color-destructive-foreground: #FFFFFF; /* white */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Typography Base Styles - Enhanced */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+
+  body, p, span, div {
+    font-family: 'Noto Sans Arabic', sans-serif;
+    font-weight: 400;
+  }
+
+  .font-caption {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 300;
+  }
+
+  .font-mono {
+    font-family: 'Roboto Mono', monospace;
+  }
+
+  /* Modern Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-muted);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #64748B, #475569);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #475569, #334155);
+  }
+
+  /* Enhanced Focus Styles */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:ring-offset-2 focus:ring-offset-background;
+  }
+
+  /* Modern Animation Utilities */
+  .animate-fade-in {
+    animation: fadeIn 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .animate-slide-in {
+    animation: slideIn 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .animate-scale-up {
+    animation: scaleUp 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes scaleUp {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Modern Elevation System */
+  .elevation-1 {
+    box-shadow: 
+      0 1px 3px rgba(0, 0, 0, 0.12),
+      0 1px 2px rgba(0, 0, 0, 0.24);
+  }
+
+  .elevation-2 {
+    box-shadow: 
+      0 4px 12px rgba(0, 0, 0, 0.15),
+      0 2px 4px rgba(0, 0, 0, 0.12);
+  }
+
+  .elevation-3 {
+    box-shadow: 
+      0 10px 25px rgba(0, 0, 0, 0.19),
+      0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+
+  /* Glass Effect */
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .dark .glass-effect {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* RTL Support Enhanced */
+  [dir="rtl"] {
+    text-align: right;
+  }
+
+  [dir="rtl"] .rtl-flip {
+    transform: scaleX(-1);
+  }
+}
+
+/* Component Specific Styles - Modern Updates */
+@layer components {
+  /* Button Variants - Premium */
+  .btn-marine {
+    @apply bg-gradient-to-r from-slate-800 to-slate-900 text-white hover:from-slate-700 hover:to-slate-800 shadow-lg shadow-slate-500/25 focus:ring-slate-500/50;
+  }
+
+  .btn-teal {
+    @apply bg-gradient-to-r from-teal-600 to-teal-700 text-white hover:from-teal-500 hover:to-teal-600 shadow-lg shadow-teal-500/25 focus:ring-teal-500/50;
+  }
+
+  .btn-modern {
+    @apply bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:from-indigo-500 hover:to-purple-500 shadow-lg shadow-indigo-500/25 focus:ring-indigo-500/50;
+  }
+
+  /* Card Variants - Enhanced */
+.card-elevated  {
+    @apply bg-card border elevation-1 rounded-2xl backdrop-blur-sm;
+  }
+.card-interactive  {
+    @apply card-elevated transition-all duration-300 cursor-pointer hover:scale-[1.02];
+  }
+
+  .card-premium {
+    @apply bg-gradient-to-br from-white via-white to-slate-50/50 dark:from-slate-800 dark:via-slate-800 dark:to-slate-900/50 border border-slate-200/60 dark:border-slate-700/60 rounded-2xl shadow-xl shadow-slate-900/5 dark:shadow-black/20;
+  }
+
+  /* Input Styles - Modern */
+.input-field  {
+    @apply bg-input text-foreground placeholder:text-muted-foreground focus:ring-blue-500/50 focus:border-blue-500/50 rounded-xl transition-all duration-200;
+  }
+
+  /* Status Indicators - Enhanced */
+  .status-success {
+    @apply bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 text-emerald-700 dark:text-emerald-300 border border-emerald-200/50 dark:border-emerald-700/50;
+  }
+
+  .status-warning {
+    @apply bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 text-amber-700 dark:text-amber-300 border border-amber-200/50 dark:border-amber-700/50;
+  }
+
+  .status-error {
+    @apply bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/20 text-red-700 dark:text-red-300 border border-red-200/50 dark:border-red-700/50;
+  }
+
+  /* Modern Maritime Theme */
+  .marine-pattern {
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(20, 184, 166, 0.08) 0%, transparent 50%);
+  }
+
+  .wave-decoration {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%233B82F6' fill-opacity='0.03'%3E%3Cpath d='M30 30c0-16.569-13.431-30-30-30v30h30z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* Modern Gradient Backgrounds */
+  .gradient-bg-primary {
+    @apply bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-blue-900/20;
+  }
+
+  .gradient-bg-secondary {
+    @apply bg-gradient-to-br from-teal-50 via-white to-emerald-50 dark:from-slate-900 dark:via-slate-800 dark:to-teal-900/20;
+  }
+
+  /* Text Gradients */
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-secondary {
+    @apply bg-gradient-to-r from-teal-600 to-emerald-600 dark:from-teal-400 dark:to-emerald-400 bg-clip-text text-transparent;
+  }
+}
